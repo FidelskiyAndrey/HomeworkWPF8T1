@@ -7,16 +7,15 @@
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
  
-
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenExecuted"/>
         <CommandBinding Command="Save" Executed="SaveExecuted"/>
         <CommandBinding Command="Close" Executed="CloseExecuted"/>
     </Window.CommandBindings>
 
-    <Grid>
+    <Grid ForceCursor="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="Auto"/>
@@ -24,18 +23,15 @@
 
         </Grid.RowDefinitions>
 
-        <ToolBarTray Grid.Row="1">
-            <ToolBar Margin="5" Padding="5">
-                <ComboBox Width="150" Margin="5" Padding="5" SelectedIndex="0" ItemsSource="{StaticResource types}" >
-                   
+        <ToolBarTray Grid.Row="1" Style="{DynamicResource ToolBarTrayStyle}">
+            <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarTrayStyle}">
+                <ComboBox Width="150" Margin="5" Padding="5" SelectedIndex="0" ItemsSource="{StaticResource types}" Style="{DynamicResource ToolBarTrayStyle}">
                 </ComboBox>
-
-                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="50" ItemsSource="{StaticResource size}" >
- 
+                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="50" ItemsSource="{StaticResource size}" Style="{DynamicResource ToolBarTrayStyle}">
                 </ComboBox>
             </ToolBar>
 
-            <ToolBar Margin="5" Padding="5">
+            <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarTrayStyle}">
 
                 <Button Click="Button_Click1">
                     <Image Source="Data\1.png"  Width="35"/>
@@ -50,32 +46,34 @@
                 </Button>
             </ToolBar>
 
-            <ToolBar Margin="5" Padding="5">
-                <StackPanel>
-                    <RadioButton Content="Черный" IsChecked="True" Click="RadioButton_Click"/>
-                    <RadioButton Content="Красный" Click="RadioButton_Click1"/>
+            <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarTrayStyle}">
+                <StackPanel Style="{DynamicResource ToolBarTrayStyle}" >
+                    <RadioButton Content="Черный" IsChecked="True" Click="RadioButton_Click" Style="{DynamicResource ToolBarTrayStyle}"/>
+                    <RadioButton Content="Красный" Click="RadioButton_Click1" Style="{DynamicResource ToolBarTrayStyle}"/>
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="12" FontFamily="Arial" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Foreground="Black"/>
+        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="12" FontFamily="Arial" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Style="{DynamicResource TextBoxStyle}" />
 
-        <Menu Grid.Row="0" Margin="2">
+        <Menu Grid.Row="0" Margin="2" Style="{DynamicResource MenuStyle}">
             <MenuItem Header="_Файл">
-                <MenuItem Header="_Открыть" Command="Open">
+                <MenuItem Header="_Открыть" Command="Open" Style="{DynamicResource MenuStyle}">
 
 
                 </MenuItem>
-                <MenuItem Header="_Сохранить" Command="Save" >
+                <MenuItem Header="_Сохранить" Command="Save" Style="{DynamicResource MenuStyle}">
 
 
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="_Закрыть" Command="Close" >
+                <MenuItem Header="_Закрыть" Command="Close" Style="{DynamicResource MenuStyle}">
 
 
                 </MenuItem>
 
             </MenuItem>
+            <ComboBox x:Name="styleBox" Style="{DynamicResource MenuStyle}" Margin="0.1"/>
+
 
         </Menu>
 

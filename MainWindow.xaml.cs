@@ -23,8 +23,29 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+
+            List<string> Styles = new List<string>() { "Светлая тема", "Тёмная тема" };
+            styleBox.ItemsSource = Styles;
+            styleBox.SelectionChanged += ThemeChange;
+            styleBox.SelectedIndex = 0;
+            
+
         }
 
+        private void ThemeChange(object sender, SelectionChangedEventArgs e)
+        {
+
+            int styleIndex = styleBox.SelectedIndex;
+            Uri uri = new Uri("Light.xaml", UriKind.Relative);
+            if(styleIndex==1)
+            {
+                uri=new Uri("Dark.xaml", UriKind.Relative);
+            }
+            ResourceDictionary resourse = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourse);
+
+        }
 
         bool isBold;
         private void Button_Click1(object sender, RoutedEventArgs e)
@@ -97,6 +118,7 @@ namespace WpfApp1
         {
             Application.Current.Shutdown();
         }
+
 
 
 
