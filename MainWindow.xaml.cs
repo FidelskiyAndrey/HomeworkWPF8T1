@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
-  
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,7 +28,7 @@ namespace WpfApp1
             styleBox.ItemsSource = Styles;
             styleBox.SelectionChanged += ThemeChange;
             styleBox.SelectedIndex = 0;
-            
+
 
         }
 
@@ -37,9 +37,9 @@ namespace WpfApp1
 
             int styleIndex = styleBox.SelectedIndex;
             Uri uri = new Uri("Light.xaml", UriKind.Relative);
-            if(styleIndex==1)
+            if (styleIndex == 1)
             {
-                uri=new Uri("Dark.xaml", UriKind.Relative);
+                uri = new Uri("Dark.xaml", UriKind.Relative);
             }
             ResourceDictionary resourse = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
@@ -124,6 +124,6 @@ namespace WpfApp1
 
 
 
-       
+
     }
 }

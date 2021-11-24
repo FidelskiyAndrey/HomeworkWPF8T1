@@ -25,9 +25,9 @@
 
         <ToolBarTray Grid.Row="1" Style="{DynamicResource ToolBarTrayStyle}">
             <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarTrayStyle}">
-                <ComboBox Width="150" Margin="5" Padding="5" SelectedIndex="0" ItemsSource="{StaticResource types}" Style="{DynamicResource ToolBarTrayStyle}">
+                <ComboBox Name="fontst" Width="150" Margin="5" Padding="5" SelectedIndex="0" ItemsSource="{StaticResource types}" Style="{DynamicResource ToolBarTrayStyle}">
                 </ComboBox>
-                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="50" ItemsSource="{StaticResource size}" Style="{DynamicResource ToolBarTrayStyle}">
+                <ComboBox Name="fontsi" Margin="5" Padding="5" SelectedIndex="0" Width="50" ItemsSource="{StaticResource size}" Style="{DynamicResource ToolBarTrayStyle}">
                 </ComboBox>
             </ToolBar>
 
@@ -53,7 +53,7 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="12" FontFamily="Arial" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Style="{DynamicResource TextBoxStyle}" />
+        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="{Binding ElementName=fontsi,Path=Text}" FontFamily="{Binding ElementName=fontst,Path=Text}" FontWeight="Normal" FontStyle="Normal" TextDecorations="None" Style="{DynamicResource TextBoxStyle}" />
 
         <Menu Grid.Row="0" Margin="2" Style="{DynamicResource MenuStyle}">
             <MenuItem Header="_Файл">
